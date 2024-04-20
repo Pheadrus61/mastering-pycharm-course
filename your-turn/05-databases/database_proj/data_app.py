@@ -22,3 +22,4 @@ def list_albums():
 
 if __name__ == '__main__':
     main()
+
