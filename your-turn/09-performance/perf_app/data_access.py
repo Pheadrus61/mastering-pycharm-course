@@ -1,3 +1,4 @@
+import functools
 import time
 
 
@@ -8,6 +9,7 @@ def get_records(text):
 
 
 # TODO: Make this faster by caching / reusing the connection
+@functools.lru_cache(maxsize=None)
 def create_connection():
     time.sleep(.250)
     conn = {'connected': True}
@@ -27,7 +29,7 @@ def run_query(conn, text):
 
 
 def read_row(conn):
-    time.sleep(.001)  # TODO: Improved index, i.e. shorting this!
+    time.sleep(.0001)  # TODO: Improved index, i.e. shorting this!
     if conn.get('connected'):
         return {'col1': 'val1', 'col2': 'val2'}
 

@@ -1,3 +1,4 @@
+import functools
 from typing import List
 import urllib.parse
 import requests
@@ -12,6 +13,7 @@ def search(text: str) -> List[str]:
     return results
 
 
+@functools.lru_cache(maxsize=None)
 def build_url(text):
     # format is https://search.talkpython.fm/api/search?q=SEARCH
 
